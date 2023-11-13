@@ -1,0 +1,44 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 50px;
+}
+.item img {
+    width: 150px;
+    height: 100%;
+}
+
+.item {
+    padding: 30px;
+    margin: 10px;
+    border-radius: 1em;
+    box-shadow: 1px 1px 5px rgba(1, 1, 1, 0.3);
+}
+
+.itemPage{
+    margin: 40px;
+    gap: 50px;
+}
+
+
+.inputCount{
+    width: 40px;
+}
+.inputCount:focus{
+    border: none;
+    outline: none;
+}
+
+.addToCart{
+    font-size: large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: orangered;
+    padding: 10px 20px;
+    border-radius: 1em;
+}
