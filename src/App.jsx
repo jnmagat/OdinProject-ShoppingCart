@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import Product from "./components/Product";
 import Item from "./components/Item";
 import CartPage from "./components/CartPage";
-// import { useState } from "react";
+import { CartProvider } from './components/CartContext';
 
 async function getAPIData () {
   let url = ('https://fakestoreapi.com/products');
@@ -19,25 +19,29 @@ const App = () => {
 
   const {page} = useParams();
   const {item} = useParams();
-  // const [cart, setCart] = useState();
 
   return (
     <>
+    <CartProvider>
       <Navbar/>
       {
         item ? <Item/> : (
          page === "home" ? (
           <Home />
          ) : page === "market" ? (
-          <Product products={products} />
+          <Product 
+            // addToCart={addToCart}
+            products={products} 
+          />
          ) : page === "cart" ? (
-          <CartPage />
+          <CartPage 
+          />
          ) : (
           <Home />
          )
         )
       }
-      
+    </CartProvider>
       
     </>
   )

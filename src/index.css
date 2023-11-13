@@ -42,3 +42,18 @@
     padding: 10px 20px;
     border-radius: 1em;
 }
+
+.cartPage{
+    padding: 20px;
+}
+.cartItem{
+    padding: 20px;
+    box-shadow: 2px 2px 2px rgba(1, 1, 1, 0.3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+.cartItem img{
+    width: 60px;
+}

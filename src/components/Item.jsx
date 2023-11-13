@@ -1,16 +1,20 @@
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useCart } from './CartContext';
+
 
 const Item = () => {
   const location = useLocation();
   const { itemDetails } = location.state;
-  const [items,setItems] = useState([]);
+  const { cart, addToCart } = useCart();
 
-  function addToCart() {
-    setItems(
-        ...items,
-        itemDetails
-    );
+
+  const handleAddToCart =() => {
+    const isItemInCart = cart.some( (item) => item.id === itemDetails.id);
+    if(isItemInCart){
+        alert("Item is already in cart");
+    } else {
+        addToCart( itemDetails);
+    }
   }
   
   return(
@@ -29,7 +33,7 @@ const Item = () => {
                     <input type="number" className='inputCount' />
                 </div>
                 <div className="mt-10">
-                    <button onClick={addToCart} className='addToCart'>Add to Cart</button>
+                    <button onClick={handleAddToCart} className='addToCart'>Add to Cart</button>
                 </div>
             </div>
         </div>
