@@ -11,9 +11,17 @@ export const CartProvider = ({ children }) => {
     setCart([...cart, item]);
   };
 
-  console.log(children);
+  const updateCart = (newCart) => {
+    setCart(newCart);
+  }
+
+  const getAllItem = () => {
+    const totalCount = cart.reduce((sum, item) => sum + item.count, 0);
+    return totalCount;
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, updateCart, getAllItem }}>
       {children}
     </CartContext.Provider>
   );

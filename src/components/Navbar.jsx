@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from "./CartContext";
 
 const Navbar = () => {
+
+    const { getAllItem } = useCart();
+
+    // console.log(getAllItem());
+
     return(
         <>
             <nav className="flex items-center align-center justify-between p-4 bg-gray-900">
@@ -20,6 +26,13 @@ const Navbar = () => {
                 <div className="text-white text-2xl">
                     <Link to="/cart">
                         <FontAwesomeIcon icon={faCartShopping} />
+                        {
+                            getAllItem() ? (
+                                <span className='badge badge-warning' id='lblCartCount'> {getAllItem()}</span>
+                            ) : (
+                                <span className='badge badge-warning' id='lblCartNoCount'>&nbsp;&nbsp; </span>
+                            )
+                        }
                     </Link>
                 </div>
             </nav>
