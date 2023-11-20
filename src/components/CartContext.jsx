@@ -20,8 +20,19 @@ export const CartProvider = ({ children }) => {
     return totalCount;
   }
 
+  const getAllAmount = () => {
+    console.log(cart);
+    let totalAmount = 0;
+    let grandTotal = 0;
+    cart.map( (item) => {
+      totalAmount = item.price * item.count;
+      grandTotal += totalAmount;
+    })
+    return grandTotal;
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, updateCart, getAllItem }}>
+    <CartContext.Provider value={{ cart, addToCart, updateCart, getAllItem, getAllAmount}}>
       {children}
     </CartContext.Provider>
   );
