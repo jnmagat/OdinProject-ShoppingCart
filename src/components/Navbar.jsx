@@ -13,7 +13,7 @@ const Navbar = () => {
         <>
             <nav className="flex items-center align-center justify-between p-4 bg-gray-900">
                 <div className="w-15 h-10">
-                    <img src="/src/assets/JNM.png" alt="User Avatar" className="w-full h-full rounded-full" />
+                    <img src="./assets/JNM.png" alt="User Avatar" className="w-full h-full rounded-full" />
                 </div>
                 <ul className="flex space-x-20 font-bold text-white">
                     <li>
